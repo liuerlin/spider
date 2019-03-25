@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace = "aerors.spider.Mapper.SateMapper">
+
+    <resultMap id = "resultSate" type = "aerors.spider.Entity.Satellite">
+        <result property = "id" column = "id"/>
+        <result property = "satellite_name" column = "sate_name"/>
+        <result property = "launch_time" column = "launch_time"/>
+        <result property = "height" column = "ground_height"/>
+        <result property = "weight" column = "weight"/>
+    </resultMap>
+  <!--  <select id = "findAll" resultMap = "resultSate">
+        SELECT * FROM act_user where id = #{id};
+    </select>-->
+    <select id = "searchList" resultMap = "resultSate">
+        SELECT * FROM satellite
+    </select>
+    <select id = "searchListOrderByField" resultMap = "resultSate" parameterType="map">
+        /*SELECT * FROM satellite ORDER BY CONVERT (${columnName } USING utf8) DESC*/
+        SELECT * FROM satellite ORDER BY ${columnName } DESC
+    </select>
+    <select id = "searchBySateName" resultMap = "resultSate" parameterType="map">
+        SELECT * FROM satellite
+        <if test="sateName != null">
+            where sate_name=#{sateName}
+        </if>
+    </select>
+</mapper>
