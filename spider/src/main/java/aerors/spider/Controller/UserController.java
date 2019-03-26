@@ -35,7 +35,7 @@ public class UserController {
                                  HttpSession session) {
         if(name.equals("eddie") && password.equals("123456")){
             System.out.println("登录成功!");
-            User usr = new User(name,password,33);
+            User usr = new User(name,password,32);
             session.setAttribute("user",usr);
             return new ModelAndView("forward:/satellite/searchAll");//采用ModelAndView重定向;
         }else{
