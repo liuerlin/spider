@@ -5,6 +5,7 @@ public class User {
     private  String userName;
     private  String userPwd;
     private  Integer age;
+    private  String gender;
 
     public User(String userName, String userPwd, Integer age) {
         this.userName = userName;
@@ -34,5 +35,13 @@ public class User {
 
     public void setAge(Integer age) {
         this.age = age;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 }
