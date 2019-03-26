@@ -17,7 +17,7 @@
     <script type="text/javascript" src="<c:url value="/resources/js/jquery-3.3.1.min.js"/>"></script>
     <style>
         th,td{
-            border: 1px solid black;
+            border: 3px solid black;
             cursor: pointer;
         }
     </style>
