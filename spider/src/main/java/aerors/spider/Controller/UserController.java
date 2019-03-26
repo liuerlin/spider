@@ -32,16 +32,14 @@ public class UserController {
     @RequestMapping(value = "/validate",method = {RequestMethod.POST})
     public ModelAndView validate(@RequestParam(value="name") String name,
                                  @RequestParam(value="password") String password,
-                                 HttpSession session) throws IOException {
+                                 HttpSession session) {
         if(name.equals("eddie") && password.equals("123456")){
             System.out.println("登录成功!");
-            User usr = new User(name,password);
+            User usr = new User(name,password,33);
             session.setAttribute("user",usr);
-            ModelAndView mv = new ModelAndView("forward:/satellite/searchAll");//采用ModelAndView重定向
-            return mv;
+            return new ModelAndView("forward:/satellite/searchAll");//采用ModelAndView重定向;
         }else{
-            ModelAndView mv = new ModelAndView("forward:/user/login");
-            return mv;
+            return new ModelAndView("forward:/user/login");
         }
     }
 
