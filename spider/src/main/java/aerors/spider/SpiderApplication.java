@@ -21,7 +21,6 @@ public class SpiderApplication {
         //分页插件
         PageHelper pageHelper = new PageHelper();
         Properties properties = new Properties();
-        //properties.setProperty("reasonable", "true");
         properties.setProperty("supportMethodsArguments", "true");
         properties.setProperty("helperDialect", "mysql");
         properties.setProperty("params", "count=countSql");
